@@ -1,0 +1,56 @@
+<div class="tracking-pktkp">
+<?php $tracking_code = $this->getTracking(); ?>
+<h1><?php echo __('Tracking: '); ?><?php echo $tracking_code; ?></h1>
+<?php
+  $dataHelper = $this->helper('Pakettikauppa\Logistics\Helper\Data');
+  $tracking = $this->getTrackingStatus();
+  if(!empty($tracking)){
+    echo '<table class="tracking-table-pktkp">';
+    echo '<thead>';
+      echo '<tr>';
+        echo '<th>'.__('Updated:').'</th>';
+        echo '<th>'.__('Post Office:').'</th>';
+        echo '<th>'.__('Postcode:').'</th>';
+        echo '<th>'.__('Status:').'</th>';
+      echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    foreach($tracking as $track){
+          $status_text = $dataHelper->getShipmentStatusText($track->status_code);
+          $date = date('d.m.Y H:i:s', strtotime($track->message_created));
+          echo '<tr>';
+          echo '<td>'.$date.'</td>';
+          echo '<td>'.$track->post_office.'</td>';
+          echo '<td>'.$track->postcode .'</td>';
+          echo '<td>'.$status_text.'</td>';
+          echo '</tr>';
+    }
+    echo '</tbody>';
+    echo '</table>';
+  }else{
+    echo '<p>'.__('No tracking information available.').'</p>';
+  }
+?>
+</div>
+<style>
+.tracking-pktkp{
+  padding: 20px;
+}
+.tracking-table-pktkp{
+  width: 100%;
+  margin: 20px 0;
+}
+.tracking-table-pktkp thead{
+  background-color: #1979c3;
+  color:#fff;
+  text-transform: uppercase;
+}
+.tracking-table-pktkp thead tr th{
+  font-weight: 600;
+}
+.tracking-table-pktkp th,
+.tracking-table-pktkp td{
+  border:1px solid #b3b3b3;
+  padding: 6px;
+}
+</style>

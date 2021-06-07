@@ -1,0 +1,13 @@
+{
+    "name": "posti/magento2-shipping-plugin",
+    "description": "Posti shipping plugin for Magento 2",
+    "type": "library",
+    "keywords": ["Shipping", "API", "Posti"],
+    "homepage": "https://www.posti.fi",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [ "Pakettikauppa/Logistics/registration.php" ],
+        "psr-4": { "Pakettikauppa\\Logistics\\": "Pakettikauppa/Logistics" }
+    }
+}

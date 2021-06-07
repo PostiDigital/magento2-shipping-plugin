@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="pakettikauppa" translate="label" sortOrder="10">
+          <label>Posti</label>
+        </tab>
+        <section id="pakettikauppa_config" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+          <label>Posti Config</label>
+          <tab>pakettikauppa</tab>
+          <resource>Pakettikauppa_Logistics::configuration</resource>
+          <group id="store" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+              <label>Store Config</label>
+              <!--
+              <field id="active" type="select" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Test Mode</label>
+                  <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+              </field>
+              -->
+              <field id="name" type="text" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Store Name</label>
+              </field>
+              <field id="address" type="text" translate="label comment" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Store Address</label>
+              </field>
+              <field id="city" type="text" translate="label comment" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Store City</label>
+              </field>
+              <field id="postcode" type="text" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Store Postcode</label>
+              </field>
+              <field id="country" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Store Country</label>
+                  <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+              </field>
+          </group>
+          <group id="api" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+              <label>Api Key Config</label>
+              <field id="api_key" type="text" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Api Key</label>
+              </field>
+              <field id="api_secret_key" type="text" translate="label comment" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Api Secret Key</label>
+              </field>
+          </group>
+        </section>
+        <section id="carriers" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="posti_pikkupaketti" translate="label" type="text" sortOrder="189" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti - Pikkupaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="posti_kotipaketti" translate="label" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti - Kotipaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="posti_pickuppoint" translate="label" type="text" sortOrder="191" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>(Pickup Point) Posti - Postipaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="posti_expresspaketti" translate="label" type="text" sortOrder="191" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti - Express</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="posti_parcel_baltics" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti Parcel Baltics</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="postiinternational_expressbusinessday14" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti Express Business day</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="postiinternational_ems" translate="label" type="text" sortOrder="191" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti - EMS</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="postiinternational_parcelconnect" translate="label" type="text" sortOrder="191" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Posti - Parcel Connect</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <!--
+            <group id="postiinternational_smartpostviro_pickuppoint" translate="label" type="text" sortOrder="191" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>(Pickup Point) Posti - SmartPOST Viro</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+            <!--
+            <group id="matkahuolto_pickuppoint" translate="label" type="text" sortOrder="193" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>(Pickup Point) Matkahuolto - Lähellä-paketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+            <!--
+            <group id="matkahuolto_jakopaketti" translate="label" type="text" sortOrder="194" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Matkahuolto - Jakopaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+            <!--
+            <group id="matkahuolto_bussipaketti" translate="label" type="text" sortOrder="195" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Matkahuolto - Bussipaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+            <!--
+            <group id="gls_eurobusiness" translate="label" type="text" sortOrder="196" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GLS - Eurobusiness</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+            <!--
+            <group id="dbschenker_pickuppoint" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>(Pickup Point) DBSchekner Noutopistepaketti</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Price</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cart_price" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum cart price for discount shipping</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="new_price" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping price with discount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+            -->
+        </section>
+    </system>
+</config>

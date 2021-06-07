@@ -1,0 +1,33 @@
+<?php $details = $block->getPickuppointDetails();
+if (!empty($details)):
+?>
+<div class="pakettikauppa_shipping_info">
+  <span class="title">Posti Shipping Details</span>
+  <div class="pakettikauppa_info">
+    <?php
+      
+      echo $details['pickup_point_provider'];
+      echo "<br/>";
+      echo $details['pickup_point_name'].", ";
+      echo $details['pickup_point_location'];
+      echo "<br/>";
+      echo $details['pickup_point_street_address'].", ";
+      echo $details['pickup_point_postcode'].", ";
+      echo $details['pickup_point_city'].", ";
+      echo $details['pickup_point_country'];
+      echo "<br/>";
+      echo $details['pickup_point_description'];
+    ?>
+  </div>
+</div>
+<style>
+.pakettikauppa_shipping_info,
+.pakettikauppa_info{
+  margin-top: 20px;
+}
+.pakettikauppa_shipping_info .title{
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+</style>
+<?php endif; ?>
