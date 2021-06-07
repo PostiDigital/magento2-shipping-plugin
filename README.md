@@ -1,4 +1,7 @@
-# Pakettikauppa (M2) shipping module
+# Posti Shipping (M2) module
+
+Posti Shipping module is based on Pakettikauppa shipping module.
+
 ### Installation:
 
 TBD
